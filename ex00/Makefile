@@ -16,8 +16,8 @@ SOURCE = megaphone.cpp
 #                             COMPILER OPTIONS                                 #
 ################################################################################
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CCPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJETS = $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)
 
@@ -25,6 +25,22 @@ OBJETS = $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)
 #                              TARGETS & RULES                                 #
 ################################################################################
 
-$(NAME)
+$(NAME) : $(OBJ_DIR)
+	$(CCPP) $(CPPFLAGS) $(OBJ_DIR) -o $(NAME)
 
-$(OBJ_DIR)
+$(OBJ_DIR)/%.o : %.cpp | $(OBJ_DIR)
+	$(CCPP) $(CPPFLAGS) -c $< -o $@
+
+$(OBJ_DIR) :
+	mkdir -p $(OBJ_DIR)
+
+clean :
+	rm -rf $(OBJ_DIR)
+
+fclean : clean
+	rm $(NAME)
+
+re : fclean
+	all
+
+.PHONY : all clean fclean re
