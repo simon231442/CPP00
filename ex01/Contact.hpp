@@ -2,8 +2,9 @@
 # define CONACT_HPP
 
 #include <string>
+#include <iostream>
 
-class contact{
+class Contact{
 	private :
 		std::string	first_name_; //attribu de la classe
 		std::string	last_name_;
@@ -12,8 +13,8 @@ class contact{
 		std::string	dark_secret_;
 
 	public :
-		contact();
-		~contact();
+		Contact();
+		~Contact();
 		void	infoSet();
 		void	displaySearch() const;
 		void	displayIndex() const;
