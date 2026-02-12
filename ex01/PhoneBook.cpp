@@ -18,7 +18,9 @@ void	PhoneBook::MenuRun()
 		get_line(std::cout, input);
 		if (input.compare(ADD) == 0)
 			ContactAdd();
-		if (input.compare(SEARCH) == 0)
+//		if (input.compare(SEARCH) == 0)
+		if (input.compare(EXIT) == 0)
+			break;
 
 	}
 

@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = phonebook
 
 ################################################################################
 #                               DIRECTORIES                                    #
@@ -10,14 +10,15 @@ OBJ_DIR = obj
 #                                MINIRT SRC                                    #
 ################################################################################
 
-SOURCE = megaphone.cpp
+SOURCE = Contact.cpp \
+		PhoneBook.cpp \
 
 ################################################################################
 #                             COMPILER OPTIONS                                 #
 ################################################################################
 
 CCPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 
 OBJETS = $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)
 
