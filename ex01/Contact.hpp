@@ -21,9 +21,11 @@ class Contact{
 	public :
 		Contact();
 		~Contact();
-		void	infoSet();
+		void	InfoSet();
 		void	displaySearch() const;
 		void	displayIndex() const;
 	};
 
+
+static std::string	InfoAsk(const std::string &FieldName);
 #endif

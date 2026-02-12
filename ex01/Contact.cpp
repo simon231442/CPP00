@@ -14,16 +14,16 @@ Contact::~Contact()
 {
 }
 
-void	Contact::infoset()
+void	Contact::InfoSet()
 {
-	first_name_ = infoAsk(FIRST_NAME);
-	last_name_ = infoAsk(LAST_NAME);
-	nick_name_ = infoAsk(NICKNAME);
-	phone_number_ = infoAsk(PHONE_NUMBER);
-	dark_secret_ = infoAsk(DARK_SECRET);
+	first_name_ = InfoAsk(FIRST_NAME);
+	last_name_ = InfoAsk(LAST_NAME);
+	nick_name_ = InfoAsk(NICKNAME);
+	phone_number_ = InfoAsk(PHONE_NUMBER);
+	dark_secret_ = InfoAsk(DARK_SECRET);
 }
 
-static std::string	infoAsk(const std:string &FieldName)
+static std::string	InfoAsk(const std:string &FieldName)
 {
 	std::string	input;
 
