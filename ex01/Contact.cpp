@@ -16,10 +16,24 @@ Contact::~Contact()
 
 void	Contact::infoset()
 {
+	first_name_ = infoAsk(FIRST_NAME);
+	last_name_ = infoAsk(LAST_NAME);
+	nick_name_ = infoAsk(NICKNAME);
+	phone_number_ = infoAsk(PHONE_NUMBER);
+	dark_secret_ = infoAsk(DARK_SECRET);
 }
 
-static std::string	infoAsk(const std:string &prompt)
+static std::string	infoAsk(const std:string &FieldName)
 {
-	std::string	answer;
+	std::string	input;
+
+	std::cout << std::setw(15);
+	std::cout << std::FildName << " : ";
+	std::getline(std::cin, input);
+	return (input);
+}
+
+
+
 
 	

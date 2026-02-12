@@ -1,8 +1,14 @@
 #ifndef CONACT_HPP
 # define CONACT_HPP
 
-#include <string>
-#include <iostream>
+# include <string>
+# include <iostream>
+
+# define FIRST_NAME		"first name"
+# define LAST_NAME		"last name"
+# define NICKNAME		"nickname"
+# define PHONE_NUMBER	"phone number"//12 caracteres
+# define DARK_SECRET		"dark secret"
 
 class Contact{
 	private :
