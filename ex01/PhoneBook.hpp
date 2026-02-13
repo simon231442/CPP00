@@ -21,12 +21,14 @@
 # define EXIT		"EXIT"
 # define CMD_PROMPT "Enter a command"
 # define CMD_ERROR	"Unknown command, try again"
+# define ADD_SUCCESS "Contact added successfully"
 
 class PhoneBook{
 	private :
 		Contact				contact[8];
 		int					index_current_;
 		void				MenuDisplay();
+		void				PromptDisplay();
 		void				ContactAdd();
 		void				ContactSearch();
 
