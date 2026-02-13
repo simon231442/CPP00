@@ -5,7 +5,7 @@
 
 #define MENU_DISPLAY \
     "\n╔════════════════════════════════════════════════╗\n" \
-    "║         📞 MY AWESOME PHONEBOOK 📞            ║\n" \
+    "║          📞 MY AWESOME PHONEBOOK 📞            ║\n" \
     "╠════════════════════════════════════════════════╣\n" \
     "║                                                ║\n" \
     "║  Available Commands:                           ║\n" \
@@ -15,17 +15,18 @@
     "║  • EXIT   : Quit the phonebook                 ║\n" \
     "║                                                ║\n" \
     "╚════════════════════════════════════════════════╝\n" \
-    "\nEnter a command : "
 
-# define ADD	"ADD"
-# define SEARCH	"SEARCH"
-# define EXIT	"EXIT"
+# define ADD		"ADD"
+# define SEARCH		"SEARCH"
+# define EXIT		"EXIT"
+# define CMD_PROMPT "Enter a command"
+# define CMD_ERROR	"Unknown command, try again"
 
 class PhoneBook{
 	private :
-		Contact::Contact	contact[8];
-		int					count_;
-		void				MenduDisplay();
+		Contact				contact[8];
+		int					index_current_;
+		void				MenuDisplay();
 		void				ContactAdd();
 		void				ContactSearch();
 

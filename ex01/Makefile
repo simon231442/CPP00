@@ -12,6 +12,7 @@ OBJ_DIR = obj
 
 SOURCE = Contact.cpp \
 		PhoneBook.cpp \
+		main.cpp \
 
 ################################################################################
 #                             COMPILER OPTIONS                                 #

@@ -14,6 +14,7 @@ Contact::~Contact()
 {
 }
 
+static std::string	InfoAsk(const std::string &FieldName);
 void	Contact::InfoSet()
 {
 	first_name_ = InfoAsk(FIRST_NAME);
@@ -23,17 +24,13 @@ void	Contact::InfoSet()
 	dark_secret_ = InfoAsk(DARK_SECRET);
 }
 
-static std::string	InfoAsk(const std:string &FieldName)
+static std::string	InfoAsk(const std::string &FieldName)
 {
 	std::string	input;
 
 	std::cout << std::setw(15);
-	std::cout << std::FildName << " : ";
+	std::cout << FieldName << " : ";
 	std::getline(std::cin, input);
 	return (input);
 }
 
-
-
-
-	

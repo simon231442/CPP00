@@ -3,12 +3,13 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 
 # define FIRST_NAME		"first name"
 # define LAST_NAME		"last name"
 # define NICKNAME		"nickname"
 # define PHONE_NUMBER	"phone number"//12 caracteres
-# define DARK_SECRET		"dark secret"
+# define DARK_SECRET	"dark secret"
 
 class Contact{
 	private :
@@ -27,5 +28,4 @@ class Contact{
 	};
 
 
-static std::string	InfoAsk(const std::string &FieldName);
 #endif
