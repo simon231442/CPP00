@@ -20,8 +20,10 @@ void	PhoneBook::MenuRun()
 		std::getline(std::cin, input);
 		if (input.compare(ADD) == 0)
 			ContactAdd();
-/*		if (input.compare(SEARCH) == 0)
-*/		else if (input.compare(EXIT) == 0)
+		else if (input.compare(SEARCH) == 0)
+			ContactSearch();
+//			Contact::DisplaySearch();
+		else if (input.compare(EXIT) == 0)
 			break;
 		else
 			std::cout << CMD_ERROR << std::endl;
@@ -36,8 +38,8 @@ void	PhoneBook::MenuDisplay()
 void	PhoneBook::PromptDisplay()
 {
 	std::cout << std::endl;
-	std::cout << std::setw(15);
-	std::cout << CMD_PROMPT << " : ";
+	std::cout << std::setw(PADDING);
+	std::cout << CMD_PROMPT << PROMPT_END;
 }
 
 void	PhoneBook::ContactAdd()
@@ -48,3 +50,28 @@ void	PhoneBook::ContactAdd()
 	std::cout << "\n" << ADD_SUCCESS << std::endl;
 	index_current_++;
 }
+
+void	PhoneBook::ContactSearch()
+{
+	ContactAllDisplay();
+	std::cout << std::endl;
+	std::cout << std::setw(PADDING);
+	std::cout << SELECT_PROMPT << PROMPT_END;
+	std::string	input;
+	std::getline(std::cin, input);
+	int index = input[0] - '0';
+	if (isdigit(input[0]) && index < 8 && index < index_current_)
+		contact[index].DisplayIndex();
+	else
+		std::cout << SELECT_ERROR << std::endl;
+}
+
+void	PhoneBook::ContactAllDisplay()
+{
+	for (int i = 0; i < index_current_; i++)
+	{
+		std::cout << i << " ";
+		contact[i].DisplaySearch();
+	}
+}
+

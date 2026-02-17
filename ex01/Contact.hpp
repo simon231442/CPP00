@@ -5,13 +5,17 @@
 # include <iostream>
 # include <iomanip>
 
+# define PADDING		15
+# define PROMPT_END		" : "
 # define FIRST_NAME		"first name"
 # define LAST_NAME		"last name"
 # define NICKNAME		"nickname"
 # define PHONE_NUMBER	"phone number"//12 caracteres
 # define DARK_SECRET	"dark secret"
+# define SEP			"|"
 
 class Contact{
+
 	private :
 		std::string	first_name_; //attribu de la classe
 		std::string	last_name_;
@@ -23,8 +27,8 @@ class Contact{
 		Contact();
 		~Contact();
 		void	InfoSet();
-		void	displaySearch() const;
-		void	displayIndex() const;
+		void	DisplaySearch();
+		void	DisplayIndex();
 	};
 
 
