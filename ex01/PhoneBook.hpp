@@ -25,22 +25,24 @@
 # define CMD_ERROR		"Unknown command, try again"
 # define ADD_SUCCESS	"Contact added successfully"
 # define SELECT_PROMPT	"Enter index"
+# define EMPTY			"Phonebook is empty"
 # define SELECT_ERROR	"Wrong index, try again"
 
 class PhoneBook{
 	private :
-		Contact				contact[8];
-		int					index_current_;
-		void				MenuDisplay();
-		void				PromptDisplay();
-		void				ContactAdd();
-		void				ContactAllDisplay();
-		void				ContactSearch();
+		Contact			contact[8];
+		int				index_current_;
+		int				full_;
+		void			MenuDisplay();
+		void			PromptDisplay();
+		void			ContactAdd();
+		void			ContactAllDisplay();
+		void			ContactSearch();
 
 	public :
 		PhoneBook();
 		~PhoneBook();
-		void				MenuRun();
+		void			MenuRun();
 	};
 
 #endif

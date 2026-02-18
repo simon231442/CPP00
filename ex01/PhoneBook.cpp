@@ -1,9 +1,12 @@
-//contactSearch -->
+//contactSearch --> empty case
+//index ask
 #include "PhoneBook.hpp"
 
 
 PhoneBook::PhoneBook()
 {
+	index_current_ = 0;
+	full_ = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -41,18 +44,26 @@ void	PhoneBook::PromptDisplay()
 	std::cout << std::setw(PADDING);
 	std::cout << CMD_PROMPT << PROMPT_END;
 }
-
+/*
 void	PhoneBook::ContactAdd()
 {
 	if (index_current_ % 8 == 0)
+	{
 		index_current_ = 0;
+		full_ = 1;
+	}
 	contact[index_current_].InfoSet();	
 	std::cout << "\n" << ADD_SUCCESS << std::endl;
 	index_current_++;
 }
-
+*/
 void	PhoneBook::ContactSearch()
 {
+	if (!index_current_)
+	{
+		std::cout << EMPTY << std::endl;
+		return ;
+	}
 	ContactAllDisplay();
 	std::cout << std::endl;
 	std::cout << std::setw(PADDING);
@@ -63,12 +74,20 @@ void	PhoneBook::ContactSearch()
 	if (isdigit(input[0]) && index < 8 && index < index_current_)
 		contact[index].DisplayIndex();
 	else
+	{
 		std::cout << SELECT_ERROR << std::endl;
+		ContactSearch();
+	}
 }
 
 void	PhoneBook::ContactAllDisplay()
 {
-	for (int i = 0; i < index_current_; i++)
+	int	count;
+	if (full_)
+		count = 8;
+	else
+		count = index_current_;
+	for (int i = 0; i < count; i++)
 	{
 		std::cout << i << " ";
 		contact[i].DisplaySearch();
