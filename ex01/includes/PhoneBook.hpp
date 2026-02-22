@@ -33,10 +33,9 @@ class PhoneBook{
 		Contact			contact[8];
 		int				index_current_;
 		int				full_;
-		void			MenuDisplay();
-		void			PromptDisplay();
+
 		void			ContactAdd();
-		void			ContactAllDisplay();
+//		void			ContactAllDisplay();
 		void			ContactSearch();
 
 	public :

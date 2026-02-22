@@ -7,12 +7,15 @@ NAME = phonebook
 OBJ_DIR = obj
 
 ################################################################################
-#                                MINIRT SRC                                    #
+#                                SOURCE FILES                                  #
 ################################################################################
+
+vpath	%.cpp src:src/contact:src/phonebook
 
 SOURCE = Contact.cpp \
 		PhoneBook.cpp \
 		phonebook_ContactAdd.cpp \
+		phonebook_ContactSearch.cpp \
 		main.cpp \
 
 ################################################################################
@@ -20,7 +23,7 @@ SOURCE = Contact.cpp \
 ################################################################################
 
 CCPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 OBJETS = $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)
 
