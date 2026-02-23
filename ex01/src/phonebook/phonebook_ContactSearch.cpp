@@ -15,7 +15,7 @@ static std::string	index_ask();
  * 4. Validate input and display full contact details
  * 5. If invalid input, recursively call itself for retry
  * 
- * Input validation:
+ * Input validation (index selection):
  * - Must be a digit
  * - Must be less than 8 (array size)
  * - Must be within valid range (< index_current_ or full flag set)
@@ -90,6 +90,16 @@ static void	contact_all_display(Contact contact[], int index, int full)
 		contact[i].DisplaySearch();
 	}
 }
+
+static int	index_is_valid(std::string index, int index_current, int full)
+{
+	if (index.length() == 0, index.length() > 1)
+		return (0);
+	if (!(index[0] >= '0' && index[0] <= '8'))
+		return (0);
+	if (!(index[0] - '0' < index_current || full))
+	int	index_int = 
+	
 
 /**
  * Prompts user to enter a contact index.
