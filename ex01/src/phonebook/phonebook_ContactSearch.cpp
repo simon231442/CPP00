@@ -2,6 +2,7 @@
 
 static int			phonebook_is_empty(int index);
 static void		 	phonebook_empty_message_display();
+static int	index_is_valid(std::string input, int index_current, int full);
 static void			contact_all_display(Contact contact[], int index, int full);
 static std::string	index_ask();
 
@@ -15,7 +16,7 @@ static std::string	index_ask();
  * 4. Validate input and display full contact details
  * 5. If invalid input, recursively call itself for retry
  * 
- * Input validation (index selection):
+ * Input validation:
  * - Must be a digit
  * - Must be less than 8 (array size)
  * - Must be within valid range (< index_current_ or full flag set)
@@ -34,7 +35,7 @@ void	PhoneBook::ContactSearch()
 	int index = input[0] - '0';
 	
 	// Validate index: must be digit, within bounds, and point to existing contact
-	if (isdigit(input[0]) && index < 8 && (index < index_current_ || full_))
+	if (index_is_valid(input, index_current_, full_) /*&& isdigit(input[0]) && index < 8 && (index < index_current_ || full_)*/)
 		contact[index].DisplayIndex();
 	else
 	{
@@ -91,15 +92,16 @@ static void	contact_all_display(Contact contact[], int index, int full)
 	}
 }
 
-static int	index_is_valid(std::string index, int index_current, int full)
+static int	index_is_valid(std::string input, int index_current, int full)
 {
-	if (index.length() == 0, index.length() > 1)
+	if (input.length() != 1)
 		return (0);
-	if (!(index[0] >= '0' && index[0] <= '8'))
+	if (!(input[0] >= '0' && input[0] <= '7'))
 		return (0);
-	if (!(index[0] - '0' < index_current || full))
-	int	index_int = 
-	
+	if (input[0] - '0' > index_current && !full)
+		return (0);
+	return (1);
+}
 
 /**
  * Prompts user to enter a contact index.
