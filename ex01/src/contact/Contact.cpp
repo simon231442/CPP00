@@ -1,23 +1,10 @@
-//getline()
-//std:getline(std::cin, name);
-//setw(); --> a voir !!! 
-//str.c_str(); -->met un \0;
-//str.substr(
 
 #include "Contact.hpp"
 
-/**
- * Default constructor for Contact class.
- * Initializes an empty contact with default string values.
- */
 Contact::Contact()
 {
 }
 
-/**
- * Destructor for Contact class.
- * Cleans up contact resources.
- */
 Contact::~Contact()
 {
 }
@@ -54,6 +41,7 @@ void	Contact::InfoSet()
  * Algorithm:
  * - Display field name with right-aligned padding
  * - Read entire line of input (allows spaces)
+ * - if eof reached (crtl -d) program is exited
  * - Return raw input without validation
  */
 static std::string	InfoAsk(const std::string &FieldName)
@@ -111,7 +99,7 @@ static void	FieldDisplay(std::string &fieldName)
 	// Extract first 10 characters
 	toDisplay = fieldName.substr(0, 10);
 	
-	// Add ellipsis if field was truncated
+	// Add ellipsis (point de suspension) if field was truncated
 	if (fieldName.length() > 10)
 		toDisplay[9] = '.';
 	
@@ -157,5 +145,3 @@ static void	info_line_display(std::string fieldName, std::string fieldValue)
 	std::cout << fieldName << PROMPT_END;
 	std::cout << fieldValue << std::endl;
 }
-
-

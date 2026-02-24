@@ -1,3 +1,4 @@
+
 #include "PhoneBook.hpp"
 
 static void phonebook_full_handle(int *index, int *full);
@@ -37,7 +38,7 @@ void	PhoneBook::ContactAdd()
  */
 static void phonebook_full_handle(int *index, int *full)
 {
-	// Check if we've reached capacity (8 contacts) and need to wrap around
+	// Check if we've reached capacity (8 contacts)
 	if (*index != 0 && *index % 8 == 0)
 	{
 		*index = 0;

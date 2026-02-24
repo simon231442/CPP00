@@ -22,11 +22,11 @@
 # define EXIT	   		"EXIT"
 # define CMD_PROMPT		"Enter a command"
 # define PROMPT_END		" : "
-# define CMD_ERROR		"Unknown command, try again"
+# define CMD_ERROR		"Unknown command. Use ADD, SEARCH or EXIT"
 # define ADD_SUCCESS	"Contact added successfully"
 # define SELECT_PROMPT	"Enter index"
 # define EMPTY			"Phonebook is empty"
-# define SELECT_ERROR	"Wrong index, try again"
+# define SELECT_ERROR	"Invalid index, try again"
 
 class PhoneBook{
 	private :
@@ -35,7 +35,6 @@ class PhoneBook{
 		int				full_;
 
 		void			ContactAdd();
-//		void			ContactAllDisplay();
 		void			ContactSearch();
 
 	public :

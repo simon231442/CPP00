@@ -1,7 +1,4 @@
-//contactSearch --> empty case
-//index ask
 #include "PhoneBook.hpp"
-
 
 PhoneBook::PhoneBook()
 {
@@ -13,10 +10,23 @@ PhoneBook::~PhoneBook()
 {
 }
 
-
 static void	menu_display();
 static void	prompt_display();
 
+/**
+ * Runs the main phonebook menu loop.
+ * 
+ * Algorithm:
+ * 1. Display initial menu with available commands
+ * 2. Enter infinite loop for command processing:
+ *    - Display prompt and wait for user input
+ *    - Parse command (ADD, SEARCH, EXIT)
+ *    - Execute corresponding function
+ *    - Display error for invalid commands
+ * 3. Exit loop when EXIT command is received
+ * 
+ * Handles EOF (Ctrl+D) by displaying message and exiting program.
+ */
 void	PhoneBook::MenuRun()
 {
 	menu_display();
@@ -41,29 +51,22 @@ void	PhoneBook::MenuRun()
 	}
 }
 
+/**
+ * Displays the main menu with available commands.
+ * Shows welcome message and command options to the user.
+ */
 static void	menu_display()
 {
 	std::cout << MENU_DISPLAY;
 }
 
+/**
+ * Displays the command prompt.
+ * Outputs formatted prompt with padding, waiting for user input.
+ */
 static void	prompt_display()
 {
 	std::cout << std::endl;
 	std::cout << std::setw(PADDING);
 	std::cout << CMD_PROMPT << PROMPT_END;
 }
-/*
-void	PhoneBook::ContactAllDisplay()
-{
-	int	count;
-	if (full_)
-		count = 8;
-	else
-		count = index_current_;
-	for (int i = 0; i < count; i++)
-	{
-		std::cout << i << " ";
-		contact[i].DisplaySearch();
-	}
-}
-*/

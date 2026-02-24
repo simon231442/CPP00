@@ -33,5 +33,4 @@ class Contact{
 		void	DisplayIndex();
 	};
 
-
 #endif

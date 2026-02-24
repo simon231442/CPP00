@@ -35,7 +35,7 @@ void	PhoneBook::ContactSearch()
 	int index = input[0] - '0';
 	
 	// Validate index: must be digit, within bounds, and point to existing contact
-	if (index_is_valid(input, index_current_, full_) /*&& isdigit(input[0]) && index < 8 && (index < index_current_ || full_)*/)
+	if (index_is_valid(input, index_current_, full_))
 		contact[index].DisplayIndex();
 	else
 	{
@@ -72,11 +72,6 @@ static void phonebook_empty_message_display()
  * @param contact Array of Contact objects
  * @param index Current number of contacts
  * @param full Flag indicating if phonebook has been filled once
- * 
- * Algorithm:
- * - If phonebook is full, display all 8 contacts
- * - Otherwise, display only contacts up to current index
- * - Each contact is prefixed with its index number
  */
 static void	contact_all_display(Contact contact[], int index, int full)
 {
@@ -92,14 +87,30 @@ static void	contact_all_display(Contact contact[], int index, int full)
 	}
 }
 
+/**
+ * Validates if the user input is a valid contact index.
+ * 
+ * @param input User input string
+ * @param index_current Current number of contacts in phonebook
+ * @param full Flag indicating if phonebook has been filled once
+ * @return 1 if valid, 0 if invalid
+ */
 static int	index_is_valid(std::string input, int index_current, int full)
 {
+	// Verify input is a single character
 	if (input.length() != 1)
 		return (0);
-	if (!(input[0] >= '0' && input[0] <= '7'))
+	
+	// Verify it's a digit between 0 and 7
+	if (input[0] < '0' || input[0] > '7')
 		return (0);
-	if (input[0] - '0' > index_current - 1 && !full)
+	
+	int index = input[0] - '0';
+	
+	// If phonebook not full, verify index points to existing contact
+	if (!full && index >= index_current)
 		return (0);
+	
 	return (1);
 }
 
@@ -111,6 +122,7 @@ static int	index_is_valid(std::string input, int index_current, int full)
  * Algorithm:
  * - Display formatted prompt with padding
  * - Read entire line of user input
+ * - If EOF reached (Ctrl+D), program is exited
  * - Return raw input for validation by caller
  */
 static std::string	index_ask()
