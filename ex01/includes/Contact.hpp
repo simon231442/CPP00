@@ -4,6 +4,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
+# include <cstdlib>
 
 # define PADDING		15
 # define PROMPT_END		" : "
@@ -13,6 +14,7 @@
 # define PHONE_NUMBER	"phone number"//12 caracteres
 # define DARK_SECRET	"dark secret"
 # define SEP			"|"
+# define EOF_MESSAGE	"EOF reached"
 
 class Contact{
 

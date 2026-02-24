@@ -25,6 +25,11 @@ void	PhoneBook::MenuRun()
 		prompt_display();
 		std::string	input;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << "\n" << EOF_MESSAGE << std::endl;
+			std::exit(0);
+		}
 		if (input.compare(ADD) == 0)
 			ContactAdd();
 		else if (input.compare(SEARCH) == 0)

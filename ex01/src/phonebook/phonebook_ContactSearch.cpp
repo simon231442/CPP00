@@ -122,6 +122,11 @@ static std::string	index_ask()
 	std::cout << SELECT_PROMPT << PROMPT_END;
 
 	std::getline(std::cin, answer);
+	if (std::cin.eof())
+	{
+		std::cout << "\n" << EOF_MESSAGE << std::endl;
+		std::exit(0);
+	}
 
 	return (answer);
 }

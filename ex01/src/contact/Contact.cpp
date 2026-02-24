@@ -63,6 +63,11 @@ static std::string	InfoAsk(const std::string &FieldName)
 	std::cout << std::setw(PADDING);
 	std::cout << FieldName << PROMPT_END;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+	{
+		std::cout << "\n" << EOF_MESSAGE << std::endl;
+		std::exit(0);
+	}
 	return (input);
 }
 
