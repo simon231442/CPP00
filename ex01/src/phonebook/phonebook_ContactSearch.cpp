@@ -98,7 +98,7 @@ static int	index_is_valid(std::string input, int index_current, int full)
 		return (0);
 	if (!(input[0] >= '0' && input[0] <= '7'))
 		return (0);
-	if (input[0] - '0' > index_current && !full)
+	if (input[0] - '0' > index_current - 1 && !full)
 		return (0);
 	return (1);
 }
