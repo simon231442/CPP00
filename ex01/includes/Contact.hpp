@@ -13,6 +13,7 @@
 # define NICKNAME		"nickname"
 # define PHONE_NUMBER	"phone number"//12 caracteres
 # define DARK_SECRET	"dark secret"
+# define STRING_EMPTY	"Fill the field, please"
 # define SEP			"|"
 # define EOF_MESSAGE	"EOF reached"
 

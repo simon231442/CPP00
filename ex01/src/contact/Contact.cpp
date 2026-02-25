@@ -41,8 +41,9 @@ void	Contact::InfoSet()
  * Algorithm:
  * - Display field name with right-aligned padding
  * - Read entire line of input (allows spaces)
- * - if eof reached (crtl -d) program is exited
- * - Return raw input without validation
+ * - If EOF reached (Ctrl+D), program is exited
+ * - If input is empty, recursively prompts again
+ * - Return user input
  */
 static std::string	InfoAsk(const std::string &FieldName)
 {
@@ -55,6 +56,11 @@ static std::string	InfoAsk(const std::string &FieldName)
 	{
 		std::cout << "\n" << EOF_MESSAGE << std::endl;
 		std::exit(0);
+	}
+	if (input.compare("") == 0)
+	{
+		std::cout<< "\n" << STRING_EMPTY << std::endl;
+		return (InfoAsk(FieldName));
 	}
 	return (input);
 }
